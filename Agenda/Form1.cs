@@ -1,0 +1,97 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Agenda
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            mostrar();
+        }
+        string continua = "yes";
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
+            verificaVazio();
+            if (continua == "yes")
+            {
+                try
+                {
+                    using (MySqlConnection cnn = new MySqlConnection())
+                    {
+                        cnn.ConnectionString = "server=localhost;database=agenda;uid=root;pwd=;port=3306";
+                        cnn.Open();
+                        MessageBox.Show("Inserido com sucesso!");
+                        string sql = "insert into contatos (nome, email) values ('" + txtNome.Text + "', '" + txtEmail.Text + "')";
+                        MySqlCommand cmd = new MySqlCommand(sql, cnn);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            mostrar();
+            limpar();
+        }
+        void mostrar()
+        {
+            try
+            {
+                using (MySqlConnection cnn = new MySqlConnection())
+                {
+                    cnn.ConnectionString = "server=localhost;database=agenda;uid=root;pwd=;port=3306";
+                    cnn.Open();
+                    string sql = "Select * from contatos";
+                    DataTable table = new DataTable();
+                    MySqlDataAdapter adpter = new MySqlDataAdapter(sql, cnn);
+                    adpter.Fill(table);
+                    dgwTabela.DataSource = table;
+                    dgwTabela.AutoGenerateColumns = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void dgwTabela_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgwTabela.CurrentRow.Index != -1)
+            {
+                txtId.Text = dgwTabela.CurrentRow.Cells[0].Value.ToString();
+                txtNome.Text = dgwTabela.CurrentRow.Cells[1].Value.ToString();
+                txtEmail.Text = dgwTabela.CurrentRow.Cells[2].Value.ToString();
+            }
+        }
+        void limpar()
+        {
+            txtId.Clear();
+            txtNome.Clear();
+            txtEmail.Clear();
+        }
+        void verificaVazio()
+        {
+            if (txtNome.Text == "" || txtEmail.Text == "")
+            {
+                continua = "no";
+                MessageBox.Show("Preencha todos os campos");
+            }
+            else
+            {
+                continua = "yes";
+            }
+        }
+    }
+}
