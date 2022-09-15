@@ -36,6 +36,12 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.txtPesquisar = new System.Windows.Forms.TextBox();
+            this.rbNome = new System.Windows.Forms.RadioButton();
+            this.rbEmail = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTabela)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,8 +77,9 @@
             this.dgwTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwTabela.Location = new System.Drawing.Point(12, 118);
             this.dgwTabela.Name = "dgwTabela";
-            this.dgwTabela.Size = new System.Drawing.Size(240, 150);
+            this.dgwTabela.Size = new System.Drawing.Size(372, 150);
             this.dgwTabela.TabIndex = 3;
+            this.dgwTabela.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwTabela_CellContentClick);
             // 
             // lblNome
             // 
@@ -106,11 +113,77 @@
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 2;
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(147, 89);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Alterar";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
+            // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(228, 89);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.TabIndex = 5;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(423, 10);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 6;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // txtPesquisar
+            // 
+            this.txtPesquisar.Location = new System.Drawing.Point(253, 12);
+            this.txtPesquisar.Name = "txtPesquisar";
+            this.txtPesquisar.Size = new System.Drawing.Size(164, 20);
+            this.txtPesquisar.TabIndex = 7;
+            // 
+            // rbNome
+            // 
+            this.rbNome.AutoSize = true;
+            this.rbNome.Location = new System.Drawing.Point(253, 38);
+            this.rbNome.Name = "rbNome";
+            this.rbNome.Size = new System.Drawing.Size(156, 17);
+            this.rbNome.TabIndex = 8;
+            this.rbNome.TabStop = true;
+            this.rbNome.Text = "Pesquisar apenas por nome";
+            this.rbNome.UseVisualStyleBackColor = true;
+            // 
+            // rbEmail
+            // 
+            this.rbEmail.AutoSize = true;
+            this.rbEmail.Location = new System.Drawing.Point(413, 38);
+            this.rbEmail.Name = "rbEmail";
+            this.rbEmail.Size = new System.Drawing.Size(154, 17);
+            this.rbEmail.TabIndex = 9;
+            this.rbEmail.TabStop = true;
+            this.rbEmail.Text = "Pesquisar apenas por email";
+            this.rbEmail.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(568, 276);
+            this.Controls.Add(this.rbEmail);
+            this.Controls.Add(this.rbNome);
+            this.Controls.Add(this.txtPesquisar);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.btnDeletar);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgwTabela);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtNome);
@@ -137,6 +210,12 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.TextBox txtPesquisar;
+        private System.Windows.Forms.RadioButton rbNome;
+        private System.Windows.Forms.RadioButton rbEmail;
     }
 }
 
