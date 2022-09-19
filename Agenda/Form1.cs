@@ -191,7 +191,7 @@ namespace Agenda
         }
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            //Ele vai criar uma bolinha para clicar e quando clicado ele vai fazer uma conexão com o banco e vai impor uma condição (Like busca por uma 
+            //Ele vai criar um botão e duas bolinhas em baixo para clicar e quando clicado ele vai fazer uma conexão com o banco e vai impor uma condição (Like busca por uma expressão como uma letra ele pode ser usado para pesquisa)
             try
             {
                 using (MySqlConnection cnn = new MySqlConnection())
@@ -237,7 +237,7 @@ namespace Agenda
 
         private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
-            //Aqui ele também faz todas as funções do btnPesquisar mas trás um pequeno
+            //Aqui ele também faz todas as funções do btnPesquisar mas trás um pequeno diferencial ele vai checar se 
             try
             {
                 using (MySqlConnection cnn = new MySqlConnection())
